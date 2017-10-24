@@ -15,9 +15,10 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'angular-oauth2'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $httpProvider, OAuthProvider, OAuthTokenProvider ) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -32,4 +33,21 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+
+    OAuthProvider.configure({
+      baseUrl: 'someBaseUrl.com',
+      clientId: 'yourClientId',
+      clientSecret: 'IfYouHaveASecret', // optional
+      grantPath: '/grant/path/token',
+      revokePath: '/logout'
+    });
+
+    OAuthTokenProvider.configure({
+      name: 'token',
+      options: {
+        secure: false
+      }
+    });
+
+    $httpProvider.interceptors.push('httpInterceptor');
   });

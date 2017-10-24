@@ -8,7 +8,9 @@
     "angular-resource": "^1.4.0",
     "angular-route": "^1.4.0",
     "angular-sanitize": "^1.4.0",
-    "angular-touch": "^1.4.0"
+    "angular-touch": "^1.4.0",
+    "bootstrap": "^3.3.7",
+    "angular-oauth2": "^4.1.1"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"
